@@ -1,0 +1,56 @@
+#include	<reg52.h>
+#include	<intrins.h>
+
+#define BAUD0	0xfd
+unsigned char a,flag;
+void Init_Time1(void)
+{
+	TR1 = 0;		//停止计数
+	TMOD	= (TMOD & 0x0f) | 0x20;
+	TH1	= BAUD0;		//初始化Time1数据
+	TL1	= BAUD0;
+	ET1	= 0;		//没有Time1中断
+	TR1=1;		//开始计时
+}
+
+void InitRs232(void)
+{
+	PCON=0;
+	REN=1;//	允许接收
+	SCON= 0x50;		//串口方式1
+	EA=1;
+    ES= 1;		//开放串口
+	Init_Time1();
+
+}
+
+
+void Serial(void) interrupt 4
+{
+  if(RI)
+   {
+    RI=0;
+    a=SBUF;
+    ES=0;
+    flag=1;
+   }
+
+}
+
+main()
+{
+	flag=0;
+	InitRs232();	
+           
+   while(1)
+  { 
+      if(flag==1)
+       {
+        SBUF =a;
+		while (TI==0);
+		TI = 0;
+	    flag=0;
+        ES=1;
+       }
+  }
+}

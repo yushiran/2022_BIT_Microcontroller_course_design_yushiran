@@ -1,0 +1,85 @@
+C51 COMPILER V9.00   Í_²¿_Ð¶Ï                                                              09/28/2022 16:41:31 PAGE 1   
+
+
+C51 COMPILER V9.00, COMPILATION OF MODULE Í_²¿_Ð¶Ï
+OBJECT MODULE PLACED IN Íâ²¿ÖÐ¶Ï.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE Íâ²¿ÖÐ¶Ï.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          /*  Á½¸öÍâ²¿ÖÐ¶ÏÊµÑé */
+   2          //==ÉùÃ÷Çø===================================
+   3          #include        <reg51.h>       //      ¶¨Òå8x51ÔÝ´æÆ÷Ö®±êÍ·µµ,P2-17~19 
+   4          #define LED     P1                      //      ¶¨ÒåLED½ÓÖÁPort 1
+   5          void delay1ms(int);             //      ÉùÃ÷ÑÓ³Ùº¯Êý 
+   6          void left(int);                 //      ÉùÃ÷µ¥µÆ×óÒÆº¯Êý 
+   7          void right(int);                //      µ¥µÆÓÒÒÆº¯Êý¿ªÊ¼
+   8          //==Ö÷³ÌÐò===================================
+   9          main()                                  //      Ö÷³ÌÐò¿ªÊ¼ 
+  10          {       IE=0x85;                        //      ×¼ÐíINT 0,INT 1ÖÐ¶Ï(6-4Ò³)
+  11   1              IP=0x01;                        //      Éè¶¨INT 0¾ßÓÐ×î¸ßÓÅÏÈÈ¨(6-5Ò³)
+  12   1              LED=0x00;                       //      ³õÖµ=0000 0000,µÆÈ«ÁÁ   
+  13   1              while(1)                        //      ÎÞÇîÑ­»·,³ÌÐòÒ»Ö±ÅÜ 
+  14   1              {       delay1ms(250);  //      ÑÓ³Ù250 1m=0.25s 
+  15   2                      LED=~LED;               //      LED·´Ïà 
+  16   2              }                                       //      whileÑ­»·½áÊø 
+  17   1      }                                               //      Ö÷³ÌÐò½áÊø 
+  18          //==×Ó³ÌÐò===================================
+  19          /* INT 0µÄÖÐ¶Ï×Ó³ÌÐò - µ¥µÆ×óÒÆ3È¦ */
+  20          void my_int0(void) interrupt 0  //      INT0 ÖÐ¶Ï×Ó³ÌÐò¿ªÊ¼ 
+  21          {       unsigned saveLED=LED;   //      ´¢´æÖÐ¶ÏÇ°LED×´Ì¬ 
+  22   1              left(3);                        //      µ¥µÆ×óÒÆ3È¦ 
+  23   1              LED=saveLED;            //      Ð´»ØÖÐ¶ÏÇ°ED×´Ì¬   
+  24   1      }                                               //      ½áÊøINT0 ÖÐ¶Ï×Ó³ÌÐò 
+  25          /* INT 1µÄÖÐ¶Ï×Ó³ÌÐò - µ¥µÆÓÒÒÆ3È¦ */
+  26          void my_int1(void) interrupt 2  //      INT1 ÖÐ¶Ï×Ó³ÌÐò¿ªÊ¼ 
+  27          {       unsigned saveLED=LED;   //      ´¢´æÖÐ¶ÏÇ°LED×´Ì¬ 
+  28   1              right(3);                       //      µ¥µÆÓÒÒÆ3È¦ 
+  29   1              LED=saveLED;            //      Ð´»ØÖÐ¶ÏÇ°LED×´Ì¬ 
+  30   1      }                                               //      ½áÊøINT1 ÖÐ¶Ï×Ó³ÌÐò 
+  31          /* ÑÓ³Ùº¯Êý,ÑÓ³ÙÔ¼x 1ms */
+  32          void delay1ms(int x)    //      ÑÓ³Ùº¯Êý¿ªÊ¼ 
+  33          {       int i,j;                        //      ÉùÃ÷ÕûÊý±äÊýi,j 
+  34   1              for (i=0;i<x;i++)       //      ¼ÆÊýx´Î,ÑÓ³Ùx 1ms 
+  35   1                      for (j=0;j<120;j++);    //      ¼ÆÊý120´Î£¬ÑÓ³Ù1ms 
+  36   1      }                                               //      ÑÓ³Ùº¯Êý½áÊø 
+  37          /* µ¥µÆ×óÒÆº¯Êý,Ö´ÐÐxÈ¦ */
+  38          void left(int x)                //      µ¥µÆ×óÒÆº¯Êý¿ªÊ¼ 
+  39          {       int i, j;                       //      ÉùÃ÷±äÊýi,j
+  40   1              for(i=0;i<x;i++)        //      iÑ­»·,Ö´ÐÐxÈ¦ 
+  41   1              {       LED=0xfe;               //      ³õÊ¼×´Ì¬=1111 1110,×îÓÒµÆÁÁ 
+  42   2                      for(j=0;j<7;j++)        //      jÑ­»·,×óÒÆ7´Î 
+  43   2                      {       delay1ms(250);  //      ÑÓ³Ù250 1m=0.25s
+  44   3                              LED=(LED<<1)|0x01;      //      ×óÒÆ1Î»áá,LSBÉèÎª1
+  45   3                      }                               //      jÑ­»·½áÊø 
+  46   2                      delay1ms(250);  //      ÑÓ³Ù250 1m=0.25s
+  47   2              }                                       //      iÑ­»·½áÊø*/
+  48   1      }                                               //      µ¥µÆ×óÒÆº¯Êý½áÊø 
+  49          /* µ¥µÆÓÒÒÆº¯Êý,Ö´ÐÐxÈ¦ */
+  50          void right(int x)               //      µ¥µÆÓÒÒÆº¯Êý¿ªÊ¼
+  51          {       int i, j;                       //      ÉùÃ÷±äÊýi,j
+  52   1              for(i=0;i<x;i++)        //      iÑ­»·,Ö´ÐÐxÈ¦ 
+  53   1              {       LED=0x7f;               //      ³õÊ¼×´Ì¬=0111 1111
+  54   2                      for(j=0;j<7;j++)//      jÑ­»·,ÓÒÒÆ7´Î 
+  55   2                      {       delay1ms(250);  //      ÑÓ³Ù250 10m=0.25s
+C51 COMPILER V9.00   Í_²¿_Ð¶Ï                                                              09/28/2022 16:41:31 PAGE 2   
+
+  56   3                              LED=(LED>>1)|0x80;      //      ÓÒÒÆ1Î»áá,MSBÉèÎª1
+  57   3                      }                               //      jÑ­»·½áÊø 
+  58   2                      delay1ms(250);  //      ÑÓ³Ù250 1m=0.25s
+  59   2              }                                       //      iÑ­»·½áÊø*/
+  60   1      }                                               //      µ¥µÆÓÒÒÆº¯Êý½áÊø 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    337    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      12
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

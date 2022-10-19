@@ -1,0 +1,583 @@
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 1   
+
+
+C51 COMPILER V9.01, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN main.OBJ
+COMPILER INVOKED BY: C:\Keil\C51\BIN\C51.EXE main.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg51.h>       
+   2          #include"lcd.h"
+   3          #include<string.h>
+   4          #include<stdio.h>
+   5          #include<stdlib.h>
+   6          #include<math.h>
+   7          
+   8          void Delay10ms(unsigned int c)   //误差 0us
+   9          {
+  10   1          unsigned char a, b;
+  11   1      
+  12   1              //--c已经在传递过来的时候已经赋值了，所以在for语句第一句就不用赋值了--//
+  13   1          for (;c>0;c--)
+  14   1              {
+  15   2                      for (b=38;b>0;b--)
+  16   2                      {
+  17   3                              for (a=130;a>0;a--);
+  18   3                      }          
+  19   2              }       
+  20   1      }
+  21          
+  22          void cout(unsigned char *a,unsigned char *b,unsigned char tok)
+  23          {
+  24   1          unsigned char a_len=strlen(a);
+  25   1              unsigned char b_len=strlen(b);
+  26   1              unsigned char i;
+  27   1      
+  28   1              LcdWriteCom(0x01);  //清屏
+  29   1              //--写第一行--//
+  30   1              LcdWriteCom(0x80); //设置坐标在第1行
+  31   1              for(i=0; i<a_len; i++)
+  32   1              {
+  33   2                      LcdWriteData(a[i]);
+  34   2              }
+  35   1      
+  36   1              //--写第二行
+  37   1              LcdWriteCom(0xC0); //设置坐标在第二行
+  38   1              for(i=0; i<b_len; i++)
+  39   1              {
+  40   2                      LcdWriteData(b[i]);
+  41   2              }
+  42   1              if(tok==1)
+  43   1                      LcdWriteCom(0x07); //设置每写一次整屏右移 */
+  44   1      
+  45   1              /*while(1)
+  46   1              {                       
+  47   1                      LcdWriteCom(0xC0); //设置坐标在第二行
+  48   1                      for(i=0; i<b_len; i++)
+  49   1                      {
+  50   1                              LcdWriteData(b[i]);
+  51   1                              Delay10ms(50);
+  52   1                      }
+  53   1                      
+  54   1              }       */                      
+  55   1      
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 2   
+
+  56   1      
+  57   1      }
+  58          unsigned char _i,_j,_k;
+  59          float  _sum;
+  60          void matrix_mult1(float a[3][2],unsigned char a_x,unsigned char a_y,float b[2][3],unsigned char b_y,float 
+             -c[3][3]) 
+  61          {
+  62   1      
+  63   1      //      char  str[10];
+  64   1              
+  65   1              //init_mempool(0x000,0x03ff);//开辟1k的内存空间 
+  66   1              //cout("for1","----",0);
+  67   1              //Delay10ms(50);
+  68   1              for (_i = 0; _i<a_x; ++_i)
+  69   1              {
+  70   2                      for (_j = 0; _j<b_y; ++_j) {
+  71   3                              _sum = 0;
+  72   3                              for (_k = 0; _k<a_y; ++_k)
+  73   3                              { 
+  74   4                                      _sum += a[_i][_k] * b[_k][_j];
+  75   4                              //      sprintf(str,"%.1f--%s",a[i][k] * b[k][j],name);  //显示调试信息
+  76   4                              //      cout( str ,"caulating-",0);
+  77   4                              //      Delay10ms(50);
+  78   4                              }
+  79   3                                      
+  80   3                              c[_i][_j] = _sum;
+  81   3                      }
+  82   2              }
+  83   1              //cout("for1ok","----",0);
+  84   1              //Delay10ms(50);
+  85   1      }
+  86          void matrix_mult2(float  a[1][3],unsigned char a_x,unsigned char a_y,float b[3][1],unsigned char b_y,float
+             - c[1][1]) 
+  87          {
+  88   1      //      float  sum;
+  89   1      //      char  str[10];
+  90   1      //      unsigned  char i,j,k;
+  91   1              //init_mempool(0x000,0x03ff);//开辟1k的内存空间
+  92   1              //cout("for2","----",0);
+  93   1              //Delay10ms(50);
+  94   1              for (_i = 0; _i<a_x; ++_i)
+  95   1              {
+  96   2                      for (_j = 0; _j<b_y; ++_j) {
+  97   3                              _sum = 0;
+  98   3                              for (_k = 0; _k<a_y; ++_k)
+  99   3                              { 
+ 100   4                                      _sum += a[_i][_k] * b[_k][_j];
+ 101   4                              //      sprintf(str,"%.1f--%s",a[i][k] * b[k][j],name);  //显示调试信息
+ 102   4                              //      cout( str ,"caulating-",0);
+ 103   4                              //      Delay10ms(50);
+ 104   4                              }
+ 105   3                                      
+ 106   3                              c[_i][_j] = _sum;
+ 107   3                      }
+ 108   2              }
+ 109   1              //cout("for2ok","----",0);
+ 110   1              //Delay10ms(50);
+ 111   1      }                
+ 112          float f(float x)
+ 113          {
+ 114   1              //return 1.0f / (1 + exp(-x));
+ 115   1              return x>0?x:0;
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 3   
+
+ 116   1      }
+ 117          float sigmoidf(float x)  
+ 118          {
+ 119   1              //return f(x)*(1 - f(x));
+ 120   1              return  x>0?1:0;
+ 121   1      }  
+ 122          void active1(float source[3][1],float target[3][1],int x,int y)   //将source用sigmoid激活存入target
+ 123          {
+ 124   1      //       char str[10];
+ 125   1               unsigned char i,j;
+ 126   1               for(i=0;i<x;i++)
+ 127   1               {
+ 128   2                      for(j=0;j<y;j++)
+ 129   2                      {
+ 130   3                              target[i][j]=f(source[i][j]);
+ 131   3                                      //sprintf(str,"%.2f %.2f",source[i][j],f(source[i][j]));  //显示调试信息
+ 132   3                              //      cout( str ,"active-",0);
+ 133   3                              //      Delay10ms(100);
+ 134   3                      }
+ 135   2               }
+ 136   1      }                        
+ 137          void active2(float source[1][1],float target[1][1],int x,int y)   //将source用sigmoid激活存入target
+ 138          {
+ 139   1              // char str[10];
+ 140   1               unsigned char i,j;
+ 141   1               for(i=0;i<x;i++)
+ 142   1               {
+ 143   2                      for(j=0;j<y;j++)
+ 144   2                      {
+ 145   3                              target[i][j]=f(source[i][j]);
+ 146   3                                      //sprintf(str,"%.2f %.2f",source[i][j],f(source[i][j]));  //显示调试信息
+ 147   3                              //      cout( str ,"active-",0);
+ 148   3                              //      Delay10ms(100);
+ 149   3                      }
+ 150   2               }
+ 151   1      } 
+ 152          void Trans(float source[3][1],float target[1][3],int x,int y)           //矩阵的转置
+ 153          {
+ 154   1               unsigned char i,j;
+ 155   1               for(i=0;i<x;i++)
+ 156   1               {
+ 157   2                      for(j=0;j<y;j++)
+ 158   2                      {
+ 159   3                              target[j][i]=source[i][j];
+ 160   3                      }
+ 161   2               }      
+ 162   1      }               
+ 163          void main()
+ 164          {
+ 165   1               float xdata input1[3][2]={{1,0},    //标准输入
+ 166   1                                                        {1,0},
+ 167   1                                                                {1,0}},input_t[2][3];
+ 168   1               float xdata output1=0.0f;                      //标准输出
+ 169   1               float xdata input2[3][2]={{0,1},    //标准输入
+ 170   1                                                        {0,1},
+ 171   1                                                                {0,1}};
+ 172   1               float xdata output2=0.0f;                      //标准输出
+ 173   1               float xdata input3[3][2]={{1,1},    //标准输入
+ 174   1                                                        {1,1},
+ 175   1                                                                {1,1}};
+ 176   1               float xdata output3=1.0f;                      //标准输出
+ 177   1               float xdata input4[3][2]={{0,0},    //标准输入
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 4   
+
+ 178   1                                                        {0,0},
+ 179   1                                                                {0,0}};
+ 180   1               float xdata output4=0.0f;                      //标准输出
+ 181   1      
+ 182   1      
+ 183   1           float xdata w1[2][3]={{0.3,0.7,0.5},
+ 184   1                                                         {0.5,0.8,0.1}};
+ 185   1               float xdata q1[3][1]={{0.8},
+ 186   1                                                         {0.4},
+ 187   1                                                     {0.6}};
+ 188   1               float xdata dfdw1[2][3],dfdw2[3][1],delta;
+ 189   1               float xdata o[1][1];
+ 190   1               float xdata res[4];
+ 191   1               unsigned char xdata str[10];
+ 192   1               float xdata t[3][3],h[3][1],h_t[1][3],z1[3][1],z[1][3],y[1][1];
+ 193   1               float xdata err=0 ;  //总体误差
+ 194   1               LcdInit();
+ 195   1      
+ 196   1               while(1)
+ 197   1               {      
+ 198   2                      //cout("start","----",0);
+ 199   2                      //Delay10ms(50);
+ 200   2                      matrix_mult1(input1,3,2,w1,3,t); //计算隐藏层
+ 201   2                      h[0][0]=t[0][0];
+ 202   2                      h[1][0]=t[1][1];
+ 203   2                      h[2][0]=t[2][2];
+ 204   2                      active1(h,z1,3,1); //激活隐藏层
+ 205   2                      Trans(z1,z,3,1);//转置矩阵
+ 206   2                      matrix_mult2(z,1,3,q1,1,y);
+ 207   2                      active2(y,o,1,1);//激活矩阵
+ 208   2                      err+=0.5*(o[0][0]-output1)*(o[0][0]-output1);//计算误差
+ 209   2                      //正向传递完毕。逆向梯度下降
+ 210   2                      delta=(o[0][0]-output1)*0.2*sigmoidf(y[0][0]);
+ 211   2                      //计算dfdw2
+ 212   2                      for (_i = 0; _i<3; ++_i)
+ 213   2                      {
+ 214   3                              for (_j = 0; _j<1; ++_j) {
+ 215   4                                         dfdw2[_i][_j]=delta*z1[_i][_j];
+ 216   4                              }
+ 217   3                      }
+ 218   2                      //计算dfdw1
+ 219   2                      for(_i=0;_i<3;_i++)  //1.转置input  3x2 -> 2x3
+ 220   2                       {
+ 221   3                              for(_j=0;_j<2;_j++)
+ 222   3                              {
+ 223   4                                      input_t[_j][_i]=input1[_i][_j];
+ 224   4                              }
+ 225   3                       }
+ 226   2                       /*---------2.计算---------------------*/       
+ 227   2                      for (_i = 0; _i<2; ++_i)
+ 228   2                      {
+ 229   3                              for (_j = 0; _j<1; ++_j) {
+ 230   4                                              _sum = 0;
+ 231   4                                      for (_k = 0; _k<3; ++_k)
+ 232   4                                      { 
+ 233   5                                              _sum += input_t[_i][_k] * q1[_k][_j];
+ 234   5                                      }
+ 235   4                                      
+ 236   4                                      t[_i][_j] = _sum;  //暂时借用t来存2x1矩阵
+ 237   4                              }
+ 238   3                      }
+ 239   2                      for(_i=0;_i<3;_i++)  //3.转置g  3x1 -> 1x3
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 5   
+
+ 240   2                       {
+ 241   3                              for(_j=0;_j<1;_j++)
+ 242   3                              {
+ 243   4                                      h_t[_j][_i]=h[_i][_j];
+ 244   4                              }
+ 245   3                       }
+ 246   2                       /*---------4.计算---------------------*/       
+ 247   2                      for (_i = 0; _i<2; ++_i)
+ 248   2                      {
+ 249   3                              for (_j = 0; _j<3; ++_j) {
+ 250   4                                              _sum = 0;
+ 251   4                                      for (_k = 0; _k<1; ++_k)
+ 252   4                                      { 
+ 253   5                                              _sum += t[_i][_k] * h_t[_k][_j];
+ 254   5                                      }
+ 255   4                                      
+ 256   4                                      dfdw1[_i][_j] = _sum*delta*0.2;  //暂时借用t来存2x1矩阵
+ 257   4                              }
+ 258   3                      }
+ 259   2                      for (_i = 0; _i<3; ++_i)
+ 260   2                      {
+ 261   3                              for (_j = 0; _j<1; ++_j) {
+ 262   4                                         q1[_i][_j]-=dfdw2[_i][_j];
+ 263   4                              }
+ 264   3                      }
+ 265   2                      for (_i = 0; _i<2; ++_i)
+ 266   2                      {
+ 267   3                              for (_j = 0; _j<3; ++_j) {
+ 268   4                                         w1[_i][_j]-=dfdw1[_i][_j];
+ 269   4                              }
+ 270   3                      }
+ 271   2                      matrix_mult1(input2,3,2,w1,3,t); //计算隐藏层
+ 272   2                      h[0][0]=t[0][0];
+ 273   2                      h[1][0]=t[1][1];
+ 274   2                      h[2][0]=t[2][2];
+ 275   2                      active1(h,z1,3,1); //激活隐藏层
+ 276   2                      Trans(z1,z,3,1);//转置矩阵
+ 277   2                      matrix_mult2(z,1,3,q1,1,y);
+ 278   2                      active2(y,o,1,1);//激活矩阵
+ 279   2                      err+=0.5*(o[0][0]-output2)*(o[0][0]-output2);//计算误差
+ 280   2                      //正向传递完毕。逆向梯度下降
+ 281   2                      delta=(o[0][0]-output2)*0.2*sigmoidf(y[0][0]);
+ 282   2                      //计算dfdw2
+ 283   2                      for (_i = 0; _i<3; ++_i)
+ 284   2                      {
+ 285   3                              for (_j = 0; _j<1; ++_j) {
+ 286   4                                         dfdw2[_i][_j]=delta*z1[_i][_j];
+ 287   4                              }
+ 288   3                      }
+ 289   2                      //计算dfdw1
+ 290   2                      for(_i=0;_i<3;_i++)  //1.转置input  3x2 -> 2x3
+ 291   2                       {
+ 292   3                              for(_j=0;_j<2;_j++)
+ 293   3                              {
+ 294   4                                      input_t[_j][_i]=input2[_i][_j];
+ 295   4                              }
+ 296   3                       }
+ 297   2                       /*---------2.计算---------------------*/       
+ 298   2                      for (_i = 0; _i<2; ++_i)
+ 299   2                      {
+ 300   3                              for (_j = 0; _j<1; ++_j) {
+ 301   4                                              _sum = 0;
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 6   
+
+ 302   4                                      for (_k = 0; _k<3; ++_k)
+ 303   4                                      { 
+ 304   5                                              _sum += input_t[_i][_k] * q1[_k][_j];
+ 305   5                                      }
+ 306   4                                      
+ 307   4                                      t[_i][_j] = _sum;  //暂时借用t来存2x1矩阵
+ 308   4                              }
+ 309   3                      }
+ 310   2                      for(_i=0;_i<3;_i++)  //3.转置g  3x1 -> 1x3
+ 311   2                       {
+ 312   3                              for(_j=0;_j<1;_j++)
+ 313   3                              {
+ 314   4                                      h_t[_j][_i]=h[_i][_j];
+ 315   4                              }
+ 316   3                       }
+ 317   2                       /*---------4.计算---------------------*/       
+ 318   2                      for (_i = 0; _i<2; ++_i)
+ 319   2                      {
+ 320   3                              for (_j = 0; _j<3; ++_j) {
+ 321   4                                              _sum = 0;
+ 322   4                                      for (_k = 0; _k<1; ++_k)
+ 323   4                                      { 
+ 324   5                                              _sum += t[_i][_k] * h_t[_k][_j];
+ 325   5                                      }
+ 326   4                                      
+ 327   4                                      dfdw1[_i][_j] = _sum*delta*0.2;  //暂时借用t来存2x1矩阵
+ 328   4                              }
+ 329   3                      }
+ 330   2                      for (_i = 0; _i<3; ++_i)
+ 331   2                      {
+ 332   3                              for (_j = 0; _j<1; ++_j) {
+ 333   4                                         q1[_i][_j]-=dfdw2[_i][_j];
+ 334   4                              }
+ 335   3                      }
+ 336   2                      for (_i = 0; _i<2; ++_i)
+ 337   2                      {
+ 338   3                              for (_j = 0; _j<3; ++_j) {
+ 339   4                                         w1[_i][_j]-=dfdw1[_i][_j];
+ 340   4                              }
+ 341   3                      }
+ 342   2                      matrix_mult1(input3,3,2,w1,3,t); //计算隐藏层
+ 343   2                      h[0][0]=t[0][0];
+ 344   2                      h[1][0]=t[1][1];
+ 345   2                      h[2][0]=t[2][2];
+ 346   2                      active1(h,z1,3,1); //激活隐藏层
+ 347   2                      Trans(z1,z,3,1);//转置矩阵
+ 348   2                      matrix_mult2(z,1,3,q1,1,y);
+ 349   2                      active2(y,o,1,1);//激活矩阵
+ 350   2                      err+=0.5*(o[0][0]-output3)*(o[0][0]-output3);//计算误差
+ 351   2                      //正向传递完毕。逆向梯度下降
+ 352   2                      delta=(o[0][0]-output3)*0.2*sigmoidf(y[0][0]);
+ 353   2                      //计算dfdw2
+ 354   2                      for (_i = 0; _i<3; ++_i)
+ 355   2                      {
+ 356   3                              for (_j = 0; _j<1; ++_j) {
+ 357   4                                         dfdw2[_i][_j]=delta*z1[_i][_j];
+ 358   4                              }
+ 359   3                      }
+ 360   2                      //计算dfdw1
+ 361   2                      for(_i=0;_i<3;_i++)  //1.转置input  3x2 -> 2x3
+ 362   2                       {
+ 363   3                              for(_j=0;_j<2;_j++)
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 7   
+
+ 364   3                              {
+ 365   4                                      input_t[_j][_i]=input3[_i][_j];
+ 366   4                              }
+ 367   3                       }
+ 368   2                       /*---------2.计算---------------------*/       
+ 369   2                      for (_i = 0; _i<2; ++_i)
+ 370   2                      {
+ 371   3                              for (_j = 0; _j<1; ++_j) {
+ 372   4                                              _sum = 0;
+ 373   4                                      for (_k = 0; _k<3; ++_k)
+ 374   4                                      { 
+ 375   5                                              _sum += input_t[_i][_k] * q1[_k][_j];
+ 376   5                                      }
+ 377   4                                      
+ 378   4                                      t[_i][_j] = _sum;  //暂时借用t来存2x1矩阵
+ 379   4                              }
+ 380   3                      }
+ 381   2                      for(_i=0;_i<3;_i++)  //3.转置g  3x1 -> 1x3
+ 382   2                       {
+ 383   3                              for(_j=0;_j<1;_j++)
+ 384   3                              {
+ 385   4                                      h_t[_j][_i]=h[_i][_j];
+ 386   4                              }
+ 387   3                       }
+ 388   2                       /*---------4.计算---------------------*/       
+ 389   2                      for (_i = 0; _i<2; ++_i)
+ 390   2                      {
+ 391   3                              for (_j = 0; _j<3; ++_j) {
+ 392   4                                              _sum = 0;
+ 393   4                                      for (_k = 0; _k<1; ++_k)
+ 394   4                                      { 
+ 395   5                                              _sum += t[_i][_k] * h_t[_k][_j];
+ 396   5                                      }
+ 397   4                                      
+ 398   4                                      dfdw1[_i][_j] = _sum*delta*0.2;  //暂时借用t来存2x1矩阵
+ 399   4                              }
+ 400   3                      }
+ 401   2                      for (_i = 0; _i<3; ++_i)
+ 402   2                      {
+ 403   3                              for (_j = 0; _j<1; ++_j) {
+ 404   4                                         q1[_i][_j]-=dfdw2[_i][_j];
+ 405   4                              }
+ 406   3                      }
+ 407   2                      for (_i = 0; _i<2; ++_i)
+ 408   2                      {
+ 409   3                              for (_j = 0; _j<3; ++_j) {
+ 410   4                                         w1[_i][_j]-=dfdw1[_i][_j];
+ 411   4                              }
+ 412   3                      }
+ 413   2                      matrix_mult1(input4,3,2,w1,3,t); //计算隐藏层
+ 414   2                      h[0][0]=t[0][0];
+ 415   2                      h[1][0]=t[1][1];
+ 416   2                      h[2][0]=t[2][2];
+ 417   2                      active1(h,z1,3,1); //激活隐藏层
+ 418   2                      Trans(z1,z,3,1);//转置矩阵
+ 419   2                      matrix_mult2(z,1,3,q1,1,y);
+ 420   2                      active2(y,o,1,1);//激活矩阵
+ 421   2                      err+=0.5*(o[0][0]-output4)*(o[0][0]-output4);//计算误差
+ 422   2                      //正向传递完毕。逆向梯度下降
+ 423   2                      delta=(o[0][0]-output4)*0.2*sigmoidf(y[0][0]);
+ 424   2                      //计算dfdw2
+ 425   2                      for (_i = 0; _i<3; ++_i)
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 8   
+
+ 426   2                      {
+ 427   3                              for (_j = 0; _j<1; ++_j) {
+ 428   4                                         dfdw2[_i][_j]=delta*z1[_i][_j];
+ 429   4                              }
+ 430   3                      }
+ 431   2                      //计算dfdw1
+ 432   2                      for(_i=0;_i<3;_i++)  //1.转置input  3x2 -> 2x3
+ 433   2                       {
+ 434   3                              for(_j=0;_j<2;_j++)
+ 435   3                              {
+ 436   4                                      input_t[_j][_i]=input4[_i][_j];
+ 437   4                              }
+ 438   3                       }
+ 439   2                       /*---------2.计算---------------------*/       
+ 440   2                      for (_i = 0; _i<2; ++_i)
+ 441   2                      {
+ 442   3                              for (_j = 0; _j<1; ++_j) {
+ 443   4                                              _sum = 0;
+ 444   4                                      for (_k = 0; _k<3; ++_k)
+ 445   4                                      { 
+ 446   5                                              _sum += input_t[_i][_k] * q1[_k][_j];
+ 447   5                                      }
+ 448   4                                      
+ 449   4                                      t[_i][_j] = _sum;  //暂时借用t来存2x1矩阵
+ 450   4                              }
+ 451   3                      }
+ 452   2                      for(_i=0;_i<3;_i++)  //3.转置g  3x1 -> 1x3
+ 453   2                       {
+ 454   3                              for(_j=0;_j<1;_j++)
+ 455   3                              {
+ 456   4                                      h_t[_j][_i]=h[_i][_j];
+ 457   4                              }
+ 458   3                       }
+ 459   2                       /*---------4.计算---------------------*/       
+ 460   2                      for (_i = 0; _i<2; ++_i)
+ 461   2                      {
+ 462   3                              for (_j = 0; _j<3; ++_j) {
+ 463   4                                              _sum = 0;
+ 464   4                                      for (_k = 0; _k<1; ++_k)
+ 465   4                                      { 
+ 466   5                                              _sum += t[_i][_k] * h_t[_k][_j];
+ 467   5                                      }
+ 468   4                                      
+ 469   4                                      dfdw1[_i][_j] = _sum*delta*0.2;  //暂时借用t来存2x1矩阵
+ 470   4                              }
+ 471   3                      }
+ 472   2                      for (_i = 0; _i<3; ++_i)
+ 473   2                      {
+ 474   3                              for (_j = 0; _j<1; ++_j) {
+ 475   4                                         q1[_i][_j]-=dfdw2[_i][_j];
+ 476   4                              }
+ 477   3                      }
+ 478   2                      for (_i = 0; _i<2; ++_i)
+ 479   2                      {
+ 480   3                              for (_j = 0; _j<3; ++_j) {
+ 481   4                                         w1[_i][_j]-=dfdw1[_i][_j];
+ 482   4                              }
+ 483   3                      }
+ 484   2      
+ 485   2                      sprintf(str,"ave_err:%.10f",err/4.0f);            //将数字格式化
+ 486   2      
+ 487   2                      //修正w1,q1
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 9   
+
+ 488   2                      cout( str ,"result-",0);         
+ 489   2                      Delay10ms(5);
+ 490   2                      if(err<=0.00000001)
+ 491   2                              break;   //训练结束
+ 492   2              }
+ 493   1              while(1)
+ 494   1              {
+ 495   2                 matrix_mult1(input1,3,2,w1,3,t); //计算隐藏层
+ 496   2                      h[0][0]=t[0][0];
+ 497   2                      h[1][0]=t[1][1];
+ 498   2                      h[2][0]=t[2][2];
+ 499   2                      active1(h,z1,3,1); //激活隐藏层
+ 500   2                      Trans(z1,z,3,1);//转置矩阵
+ 501   2                      matrix_mult2(z,1,3,q1,1,y);
+ 502   2                      active2(y,o,1,1);//激活矩阵
+ 503   2                      res[0]=o[0][0];
+ 504   2                 matrix_mult1(input2,3,2,w1,3,t); //计算隐藏层
+ 505   2                      h[0][0]=t[0][0];
+ 506   2                      h[1][0]=t[1][1];
+ 507   2                      h[2][0]=t[2][2];
+ 508   2                      active1(h,z1,3,1); //激活隐藏层
+ 509   2                      Trans(z1,z,3,1);//转置矩阵
+ 510   2                      matrix_mult2(z,1,3,q1,1,y);
+ 511   2                      active2(y,o,1,1);//激活矩阵
+ 512   2                      res[1]=o[0][0];
+ 513   2                 matrix_mult1(input3,3,2,w1,3,t); //计算隐藏层
+ 514   2                      h[0][0]=t[0][0];
+ 515   2                      h[1][0]=t[1][1];
+ 516   2                      h[2][0]=t[2][2];
+ 517   2                      active1(h,z1,3,1); //激活隐藏层
+ 518   2                      Trans(z1,z,3,1);//转置矩阵
+ 519   2                      matrix_mult2(z,1,3,q1,1,y);
+ 520   2                      active2(y,o,1,1);//激活矩阵
+ 521   2                      res[2]=o[0][0];
+ 522   2                 matrix_mult1(input4,3,2,w1,3,t); //计算隐藏层
+ 523   2                      h[0][0]=t[0][0];
+ 524   2                      h[1][0]=t[1][1];
+ 525   2                      h[2][0]=t[2][2];
+ 526   2                      active1(h,z1,3,1); //激活隐藏层
+ 527   2                      Trans(z1,z,3,1);//转置矩阵
+ 528   2                      matrix_mult2(z,1,3,q1,1,y);
+ 529   2                      active2(y,o,1,1);//激活矩阵
+ 530   2                      res[3]=o[0][0];
+ 531   2                      sprintf(str,"%.1f %.1f %.1f %.1f",res[0],res[1],res[2],res[3]);           //将数字格式化
+ 532   2                      cout( str ,"ok-",0);     
+ 533   2                      while(1)
+ 534   2                      {
+ 535   3      
+ 536   3                      }
+ 537   2              }
+ 538   1      
+ 539   1      
+ 540   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   6143    ----
+   CONSTANT SIZE    =    178    ----
+   XDATA SIZE       =   ----     334
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7      78
+   IDATA SIZE       =   ----    ----
+C51 COMPILER V9.01   MAIN                                                                  05/21/2018 23:29:40 PAGE 10  
+
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,18 @@
+<html>
+<body>
+<pre>
+<h1>µVision Build Log</h1>
+<h2>Project:</h2>
+D:\Desktop\Ptest\1-IO·äÃùÆ÷\prj_keil\test1.uvproj
+Project File Date:  09/19/2022
+
+<h2>Output:</h2>
+Build target 'Target 1'
+assembling STARTUP.A51...
+compiling 0910.c...
+linking...
+Program Size: data=15.0 xdata=0 code=131
+creating hex file from "test1"...
+"test1" - 0 Error(s), 0 Warning(s).
+compiling 0910.c...
+0910.c - 0 Error(s), 0 Warning(s).

@@ -1,0 +1,4 @@
+"STARTUP.obj",
+"按钮控制数码管.obj" 
+TO "test" 
+RAMSIZE(256) 
