@@ -1,0 +1,30 @@
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+F:\MJ\2020.5--电子工程\11、C#上位机_串口\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csprojAssemblyReference.cache
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+F:\MJ\2020.5--ELEC_PROJ\11、C#_APP_UART\uart_test\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe.config
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.exe
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.pdb
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Form1.resources
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.Properties.Resources.resources
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.GenerateResource.cache
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CoreCompileInputs.cache
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.pdb
+D:\microcontroler\2022_BIT_Microcontroller_course_design_yushiran\Yu shiran_part\上位机\uart_test_chart_ok\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.AssemblyReference.cache
