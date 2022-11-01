@@ -1,2 +1,0 @@
-stop-seq 0x00200800:0x80
-resume-seq 0x00200800:rst
