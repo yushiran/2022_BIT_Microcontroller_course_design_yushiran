@@ -1,0 +1,35 @@
+C51 COMPILER V9.60.0.0   GAME                                                              12/15/2022 15:57:55 PAGE 1   
+
+
+C51 COMPILER V9.60.0.0, COMPILATION OF MODULE GAME
+OBJECT MODULE PLACED IN game.OBJ
+COMPILER INVOKED BY: H:\keil mdk\C51\BIN\C51.EXE game.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND TABS(2)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          #include <display_drive.h>
+   3          #include <Tetris_define.h>
+   4          #include <button_drive.h>
+   5          #include <Tetris.h>
+*** WARNING C314 IN LINE 227 OF Tetris.h: bad #directive syntax
+   6          
+   7          void main()
+   8          {  
+   9   1        Init_Max7219();
+  10   1        game_start_show();
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   3151    ----
+   CONSTANT SIZE    =    414    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     56      10
+   IDATA SIZE       =     38    ----
+   BIT SIZE         =      2       5
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  1 WARNING(S),  0 ERROR(S)
