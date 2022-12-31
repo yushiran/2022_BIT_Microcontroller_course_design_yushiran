@@ -1,0 +1,25 @@
+#下位机：
+1. 51单片机硬件设计使用proteus8.15进行设计，
+文件是下位机文件夹中的game.pdsprj。
+2. 51单片机软件程序是使用keil uVision 5.14.2进行编写，
+文件是下位机文件夹中的game.uvproj
+
+#上位机：
+1. 上位机文件夹中有两个文件，一个是上位机程序的代码，
+另一个是打包出的可执行文件pyserial_demo。
+2. 上位机程序文件夹可以使用pycharm社区版打开，编译器采用的是python3.8，按照要求安装引用的api后运行pyserial_demo.py就可以看到上位机程序了。
+3. 为了方便使用可以直接测试上位机文件夹中的pyserial_demo文件夹中的pyserial_demo.exe的可执行文件，
+上位机的图像文件都存储在image文件夹里，而游戏数据就存储在record.txt文档文件中，record.txt就在pyserial_demo文件夹内。
+因为mediapipe库的原因，应将pyserial_demo文件夹复制到全英文绝对路径环境下才可以使用手部识别功能，建议将文件夹复制到桌面进行使用。
+
+#电脑配置：
+CPU	Intel(R) Core(TM) i5-10400F CPU @ 2.90GHz   2.90 GHz
+GPU        AMD Radeon RX 6600
+操作系统  Windows 10
+内存	16.0 GB
+硬盘         1T
+
+
+
+
+
