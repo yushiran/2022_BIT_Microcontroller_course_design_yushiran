@@ -60,4 +60,10 @@ GPU AMD Radeon RX 6600
 
 硬盘 1T
 
-![本地路径](.\\结果\\照片\\手势识别.png "相对路径演示,上一级目录")
+<iframe 
+    src="https://v.miaopai.com/iframe?scid=SvyHaHOczsp7B6ftW86oqMMz62-h5ai6~Fwp8A__"
+    width="800" 
+    height="450" 
+    frameborder="0" 
+    allowfullscreen>
+</iframe>
