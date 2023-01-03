@@ -60,5 +60,4 @@ GPU AMD Radeon RX 6600
 
 硬盘 1T
 
-![按键控制方块左右移动](//tvax2.sinaimg.cn/large/0073yG88gy1h9qld4l882j30m10eak1q.jpg)
-
+![本地路径](.\\结果\\照片\\手势识别.png "相对路径演示,上一级目录")
