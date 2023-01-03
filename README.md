@@ -62,7 +62,5 @@ GPU AMD Radeon RX 6600
 
 # 视频演示
 
-<video width="720" height="303" controls> 
-<source src="https://vodkgeyttp9.vod.126.net/cloudmusic/obj/wo7DlMODw6fDi2jDiMK-/23733565382/f8f9/202303175635/2b3533fc786760542bed95939d0b6ccb.mp4?ts=1672744481&rid=9D90EF6F51522840542AB408CFAC6580&rl=3&rs=vYbbHTDUniPKvLnvSeQdUYlXfVIwdedo&sign=d15d153747b1d14d1024b7285c25f2a9&ext=lR2jsG9ACqG%2FSB9XbpWniXsE0%2FibfDSbPnn4e6pX2YtVg2EmpOHLUbvEZqFjBeGLP2Xk1Vh8JjqvqdYbwU02PEXcxmMIkD%2BDoNBdsoI3RNR7FBh0o3Hr3PzKU4AXAZjzp4AVtrRd%2B5tc6zDFvEBw5MzVNZY5VgTVEgEEHgGeu1YoTCL61Vkc5rLYVmrfNmb47Ci2lizGvb5w8JVWH97QvXWdclFj3DfG05UvH3Ia6mW3ME%2FtkPUaupAqrSaN8qRDhHRCeThXz8zURC8mkslnt1Xxkz%2FPZ%2FPZXjOyAENAxaDxGlyYqm3w0aTWrSJxfJEvdgi1mUsJ6TSDN6%2Bl6BSTZfZNCL%2B9jbDPpFKxTEejbsjigHg0Vy9St7iyeEBN0te3nLIcVlUPso2S%2B%2Bnj%2BTNAbN7uiAVPYUYW2Pb6PMrDB6NoRIozCji1fX15XsRZeK2lDviExpKFsRKKElIn5CBbr2P6%2BAt7HGirN6fdikWY5O6zxfQHyV4YANvm54GjghmO4Y2Ee0XDh2KLjbnSl0mbx3ckQRXeChqBXpyRepLRg9s%3D" type="video/mp4" controls="controls">
-</video>
+[![演示视频](https://i.ytimg.com/vi/8E7bCVscW8Q/hqdefault.jpg)](https://www.youtube.com/watch?v=8E7bCVscW8Q "演示视频")
 
