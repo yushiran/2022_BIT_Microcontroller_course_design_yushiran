@@ -61,6 +61,5 @@ GPU AMD Radeon RX 6600
 硬盘 1T
 
 # 视频演示
-
-[![演示视频](https://i.ytimg.com/vi/8E7bCVscW8Q/hqdefault.jpg)](https://www.youtube.com/watch?v=8E7bCVscW8Q "演示视频")
-
+### Bilibili
+[![IMAGE ALT TEXT](//i0.hdslb.com/bfs/archive/57f2e0979e4de972b7e6fad4d1bb04e4ef50a368.jpg@320w_200h)](https://www.bilibili.com/video/BV1iP4y1e7Bs/?vd_source=7408b98c394f90d200f255a898048897 "B站演示视频")
