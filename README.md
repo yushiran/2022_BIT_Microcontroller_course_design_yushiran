@@ -62,4 +62,4 @@ GPU AMD Radeon RX 6600
 
 # 视频演示
 ### Bilibili
-[![IMAGE ALT TEXT](//i0.hdslb.com/bfs/archive/57f2e0979e4de972b7e6fad4d1bb04e4ef50a368.jpg@320w_200h)](https://www.bilibili.com/video/BV1iP4y1e7Bs/?vd_source=7408b98c394f90d200f255a898048897 "B站演示视频")
+[![IMAGE ALT TEXT](//i1.hdslb.com/bfs/archive/8ca7eb76446b8d4893ae3e71944d1b86760c6e56.jpg@320w_200h)](https://www.bilibili.com/video/BV1iP4y1e7Bs/?vd_source=7408b98c394f90d200f255a898048897 "B站演示视频")
